@@ -1,0 +1,10 @@
+main.o: main.c ../config.h ../confdeps.h main.h cmdline.h bitstream.h \
+ crc.h lc_common.h
+version.o: version.c ../config.h ../confdeps.h version.h
+crc.o: crc.c ../config.h ../confdeps.h crc.h
+models.o: models.c ../config.h ../confdeps.h main.h models.h \
+ lc_common.h
+compress.o: compress.c ../config.h ../confdeps.h compress.h bzip.h \
+ models.h lc_common.h main.h bitstream.h crc.h
+decompress.o: decompress.c ../config.h ../confdeps.h main.h bzip.h \
+ bitstream.h crc.h lc_common.h models.h

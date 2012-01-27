@@ -1,0 +1,23 @@
+#
+# Makefile.autoconf
+#
+
+# Explicit rules
+config.h.in: $(wildcard acconfig.h) configure.in
+	M4="$${M4:-m4} -D LC_CONFIG_AUX_DIR=$(CONFIG_AUX_DIR)" autoheader;
+
+configure: configure.in $(wildcard aclocal.m4)
+	M4="$${M4:-m4} -D LC_CONFIG_AUX_DIR=$(CONFIG_AUX_DIR)" autoconf;
+
+# Commands
+.PHONY: autoconf_distclean autoconf_mostlyclean
+
+curdir_autoconf: config.h.in configure
+
+autoconf_distclean:
+	rm -f libtool config.cache config.log config.status;
+
+autoconf_mostlyclean:
+	rm -f config.h.in configure;
+
+# End of Makefile.autoconf

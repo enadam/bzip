@@ -1,0 +1,108 @@
+#
+# Makefile.rules
+#
+
+# Variables
+commands :=  \
+	autoconf depend all \
+	install uninstall \
+	clean distclean \
+	mostlyclean maintainerclean \
+	dist
+curdir_commands := \
+	curdir_autoconf curdir_depend curdir_all \
+	curdir_install curdir_uninstall \
+	curdir_clean curdir_distclean \
+	curdir_mostlyclean curdir_maintainerclean
+subdir_commands := \
+	subdir_autoconf subdir_depend subdir_all \
+	subdir_install subdir_uninstall \
+	subdir_clean subdir_distclean \
+	subdir_mostlyclean subdir_maintainerclean
+
+# Rules
+.SUFFIXES:
+
+# Explicit rules
+.PHONY: $(SUBDIRS) needs_configured FORCE
+
+ifdef SUBDIRS
+$(SUBDIRS): FORCE
+	$(MAKE) -C $@;
+endif
+
+ifneq ($(HAVE_CONFIGURED), yes)
+NEEDS_CONFIGURED := needs_configured
+needs_configured:
+	@echo "Please configure before that."; exit 1;
+endif
+
+FORCE: ;
+
+# Standard commands
+.PHONY: $(commands) $(curdir_commands) $(subdir_commands)
+
+ifndef SUBDIRS
+autoconf: curdir_autoconf
+depend: curdir_depend
+all: curdir_all
+install: curdir_install
+uninstall: curdir_uninstall
+clean: curdir_clean
+distclean: curdir_distclean
+mostlyclean: curdir_mostlyclean
+maintainerclean: curdir_maintainerclean
+else
+autoconf: subdir_autoconf curdir_autoconf
+depend: subdir_depend curdir_depend
+all: subdir_all curdir_all
+install: subdir_install curdir_install
+uninstall: subdir_uninstall curdir_uninstall
+clean: subdir_clean curdir_clean
+distclean: subdir_distclean curdir_distclean
+mostlyclean: subdir_mostlyclean curdir_mostlyclean
+maintainerclean: subdir_maintainerclean curdir_maintainerclean
+endif
+
+dist:
+	$(MAKE) -C $(ROOTDIR) int_mkdist;
+
+# Internal commands
+curdir_autoconf:
+curdir_depend:
+curdir_all:
+curdir_install:
+curdir_uninstall:
+curdir_clean:
+curdir_distclean: curdir_clean
+curdir_mostlyclean: curdir_distclean
+curdir_maintainerclean: curdir_mostlyclean
+
+ifdef SUBDIRS
+subdir_autoconf:
+	@for dir in $(SUBDIRS); do $(MAKE) -C "$$dir" autoconf; done;
+subdir_depend:
+	@for dir in $(SUBDIRS); do $(MAKE) -C "$$dir" depend; done;
+subdir_all:
+	@for dir in $(SUBDIRS); do $(MAKE) -C "$$dir" all; done;
+subdir_install:
+	@for dir in $(SUBDIRS); do $(MAKE) -C "$$dir" install; done;
+subdir_uninstall:
+	@for dir in $(SUBDIRS); do $(MAKE) -C "$$dir" uninstall; done;
+subdir_clean:
+	@for dir in $(SUBDIRS); do $(MAKE) -C "$$dir" clean; done;
+subdir_distclean:
+	@for dir in $(SUBDIRS); do $(MAKE) -C "$$dir" distclean; done;
+subdir_mostlyclean:
+	@for dir in $(SUBDIRS); do $(MAKE) -C "$$dir" mostlyclean; done;
+subdir_maintainerclean:
+	@for dir in $(SUBDIRS); do $(MAKE) -C "$$dir" maintainerclean; done;
+endif
+
+int_mkdist: distclean
+	dist_dir=`pwd`; \
+	cd ..; \
+	tar cvf $${dist_dir}.tar $$dist_dir; \
+	$(GZIP) -9 $${dist_dir}.tar;
+
+# End of Makefile.rules

@@ -1,0 +1,92 @@
+dnl
+dnl configure.in
+dnl
+
+dnl Init
+AC_INIT([src/main.c])
+AC_CONFIG_HEADER([config.h])
+AC_CONFIG_AUX_DIR(LC_CONFIG_AUX_DIR)
+
+dnl Checks
+dnl Programs
+AC_PROG_CC
+
+LC_PROG_C_MAKEDEP
+LC_PROG_C_TAGS
+
+AC_PROG_INSTALL
+AC_CHECK_PROGS([GZIP], [gzip], [:])
+
+dnl Compiler characteristics
+AC_C_CONST
+AC_C_INLINE
+LC_C_FATTRIBUTES
+
+dnl Libraries
+
+dnl Header files
+LC_HEADER_STDC
+
+dnl Type definitions
+AC_TYPE_SIZE_T
+AC_TYPE_MODE_T
+AC_CHECK_TYPE([u_int8_t], [unsigned char])
+AC_CHECK_TYPE([u_int32_t], [unsigned int])
+
+dnl Library functions
+AC_CHECK_FUNCS([lstat basename rawmemchr])
+
+dnl Package options
+dnl enable-fancy-ui
+AC_ARG_ENABLE([fancy-ui],
+[  --disable-fancy-ui      ],
+	[], [enable_fancy_ui="yes";])
+if test "X$enable_fancy_ui" = "Xyes";
+then
+	AC_DEFINE([CONFIG_FANCY_UI])
+	LC_ADD_FEATURE([fancy-ui])
+fi
+
+dnl enable-compress
+AC_ARG_ENABLE([compress],
+[  --disable-compress      ],
+	[], [enable_compress="yes";])
+if test "X$enable_compress" = "Xyes";
+then
+	AC_DEFINE([CONFIG_COMPRESS])
+	LC_ADD_FEATURE([compress])
+	LC_ADDTO_LIST([bzip_objs], [compress.o])
+fi
+
+dnl enable-decompress
+AC_ARG_ENABLE([decompress],
+[  --disable-decompress      ],
+	[], [enable_decompress="yes";])
+if test "X$enable_decompress" = "Xyes";
+then
+	AC_DEFINE([CONFIG_DECOMPRESS])
+	LC_ADD_FEATURE([decompress])
+	LC_ADDTO_LIST([bzip_objs], [decompress.o])
+fi
+
+dnl dnl enable-multi-tr
+dnl AC_ARG_ENABLE([multi-tr],
+dnl [  --disable-multi-tr      ],
+dnl 	[], [enable_multi_tr="yes";])
+dnl if test "X$enable_multi_tr" = "Xyes";
+dnl then
+dnl 	AC_DEFINE([CONFIG_MULTITHREAD])
+dnl 	LC_ADD_FEATURE([multi-tr])
+dnl fi
+
+AC_DEFINE_UNQUOTED([CONFIG_FEATURES], ["$FEATURES"])
+
+LC_ARG_ENABLE_DEBUG
+
+dnl Done
+LC_SUBST_CCFLAGS([bzip])
+
+LC_OUTPUT([Makefile.vars src/Makefile])
+LC_INFO_CONFIG
+
+dnl End of configure.in

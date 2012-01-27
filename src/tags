@@ -1,0 +1,284 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/darren@hiebert.com/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.0.1	//
+AFTER_OF	lc_common.h	/^#define AFTER_OF(/;"	d
+BITSTREAM_H	bitstream.h	/^#define BITSTREAM_H$/;"	d
+BITS_OF	lc_common.h	/^#define BITS_OF(/;"	d
+BS_BIT_WINDOW	bitstream.h	/^#define BS_BIT_WINDOW	/;"	d
+BS_WINDOW_SIZE	bitstream.h	/^#define BS_WINDOW_SIZE	/;"	d
+BZIP_H	bzip.h	/^#define BZIP_H$/;"	d
+BZIP_VERSION	version.h	/^#define BZIP_VERSION /;"	d
+BZIP_VERS_BUILD	version.h	/^#define BZIP_VERS_BUILD	/;"	d
+BZIP_VERS_EXTRA	version.h	/^#define BZIP_VERS_EXTRA	/;"	d
+BZIP_VERS_HOST	version.h	/^#define BZIP_VERS_HOST	/;"	d
+BZIP_VERS_MAJOR	version.h	/^#define BZIP_VERS_MAJOR	/;"	d
+BZIP_VERS_MINOR	version.h	/^#define BZIP_VERS_MINOR	/;"	d
+BZIP_VERS_PATCH	version.h	/^#define BZIP_VERS_PATCH	/;"	d
+BZIP_VERS_TIME	version.h	/^#define BZIP_VERS_TIME	/;"	d
+BZIP_VERS_USER	version.h	/^#define BZIP_VERS_USER	/;"	d
+CHAR_BIT	lc_common.h	/^# define CHAR_BIT	/;"	d
+CMDLINE_H	cmdline.h	/^#define CMDLINE_H$/;"	d
+COMPRESS_H	compress.h	/^#define COMPRESS_H$/;"	d
+CONFDEPS_H	../confdeps.h	/^#define CONFDEPS_H$/;"	d
+CONFIG_COMPRESS	../config.h	/^#define CONFIG_COMPRESS /;"	d
+CONFIG_DEBUG	../config.h	/^#define CONFIG_DEBUG /;"	d
+CONFIG_DECOMPRESS	../config.h	/^#define CONFIG_DECOMPRESS /;"	d
+CONFIG_FANCY_UI	../config.h	/^#define CONFIG_FANCY_UI /;"	d
+CONFIG_FEATURES	../config.h	/^#define CONFIG_FEATURES /;"	d
+CONFIG_H	../config.h	/^#define CONFIG_H$/;"	d
+CRC_H	crc.h	/^#define CRC_H$/;"	d
+DEF_VARSTRUCT	lc_common.h	/^#define DEF_VARSTRUCT(/;"	d
+DFLT_COMPRESSION_LEVEL	main.c	/^#define DFLT_COMPRESSION_LEVEL	/;"	d	file:
+END_OF	lc_common.h	/^#define END_OF(/;"	d
+EXIT_ERR_INPUT	lc_common.h	/^#define EXIT_ERR_INPUT	/;"	d
+EXIT_ERR_INSIDE	lc_common.h	/^#define EXIT_ERR_INSIDE	/;"	d
+EXIT_ERR_INTR	lc_common.h	/^#define EXIT_ERR_INTR	/;"	d
+EXIT_ERR_OTHER	lc_common.h	/^#define EXIT_ERR_OTHER	/;"	d
+EXIT_ERR_USER	lc_common.h	/^#define EXIT_ERR_USER	/;"	d
+EXIT_HAPPILY	lc_common.h	/^#define EXIT_HAPPILY	/;"	d
+FIELD_OF	lc_common.h	/^#define FIELD_OF(/;"	d
+GETALL	compress.h	/^# define GETALL(/;"	d
+GETFIRST	compress.h	/^# define GETFIRST(/;"	d
+GETFIRST16	compress.h	/^# define GETFIRST16(/;"	d
+GETFOURTH	compress.h	/^# define GETFOURTH(/;"	d
+GETREST16	compress.h	/^# define GETREST16(/;"	d
+GETSECOND	compress.h	/^# define GETSECOND(/;"	d
+GETTHIRD	compress.h	/^# define GETTHIRD(/;"	d
+HAVE_BASENAME	../config.h	/^#define HAVE_BASENAME /;"	d
+HAVE_FATTRIBUTES	../config.h	/^#define HAVE_FATTRIBUTES /;"	d
+HAVE_LIBEFENCE	../config.h	/^#define HAVE_LIBEFENCE /;"	d
+HAVE_LSTAT	../config.h	/^#define HAVE_LSTAT /;"	d
+HAVE_RAWMEMCHR	../config.h	/^#define HAVE_RAWMEMCHR /;"	d
+INRANGE	lc_common.h	/^#define INRANGE(/;"	d
+ISORT_BELOW	compress.c	/^#define ISORT_BELOW	/;"	d	file:
+IS_COMPRESS	main.h	/^# define IS_COMPRESS(/;"	d
+LAST_OF	lc_common.h	/^#define LAST_OF(/;"	d
+LC_COMMON_H	lc_common.h	/^#define LC_COMMON_H$/;"	d
+LOG_DEBUG	main.h	/^# define LOG_DEBUG(/;"	d
+MAIN_H	main.h	/^#define MAIN_H$/;"	d
+MAX	lc_common.h	/^#define MAX(/;"	d
+MAX_BITS_OUTSTANDING	compress.c	/^#define MAX_BITS_OUTSTANDING	/;"	d	file:
+MAX_DENORM_OFFSET	compress.c	/^#define MAX_DENORM_OFFSET	/;"	d	file:
+MAX_SYMBOLS	models.h	/^#define MAX_SYMBOLS	/;"	d
+MEMBS_OF	lc_common.h	/^#define MEMBS_OF(/;"	d
+MIN	lc_common.h	/^#define MIN(/;"	d
+MK_INADDR	lc_common.h	/^#define MK_INADDR(/;"	d
+MODELS_H	models.h	/^#define MODELS_H$/;"	d
+MODEL_128_255	models.h	/^	MODEL_128_255,$/;"	e
+MODEL_16_31	models.h	/^	MODEL_16_31,$/;"	e
+MODEL_2_3	models.h	/^	MODEL_2_3,$/;"	e
+MODEL_32_63	models.h	/^	MODEL_32_63,$/;"	e
+MODEL_4_7	models.h	/^	MODEL_4_7,$/;"	e
+MODEL_64_127	models.h	/^	MODEL_64_127,$/;"	e
+MODEL_8_15	models.h	/^	MODEL_8_15,$/;"	e
+MODEL_BASIS	models.h	/^	MODEL_BASIS,$/;"	e
+MODEL_LAST	models.h	/^	MODEL_LAST$/;"	e
+MTFVals_decode	models.c	/^struct MTFVals_decode_st const MTFVals_decode[] =$/;"	v
+MTFVals_decode_st	models.h	/^struct MTFVals_decode_st$/;"	s
+MTFVals_encode	models.c	/^struct MTFVals_encode_st const MTFVals_encode[] =$/;"	v
+MTFVals_encode_st	models.h	/^struct MTFVals_encode_st$/;"	s
+Model	models.h	/^struct Model$/;"	s
+NDEBUG	../confdeps.h	/^# define NDEBUG /;"	d
+NDEBUG	../confdeps.h	/^#undef NDEBUG$/;"	d
+NOINLINE	main.h	/^#define NOINLINE(/;"	d
+NOINLINE_T	main.h	/^#define NOINLINE_T(/;"	d
+NORMALIZEHI	compress.h	/^#define NORMALIZEHI(/;"	d
+NORMALIZELO	compress.h	/^#define NORMALIZELO(/;"	d
+NOT_NULL	lc_common.h	/^#define NOT_NULL	/;"	d
+NUM_FULLGT_UNROLLINGS	compress.c	/^#define NUM_FULLGT_UNROLLINGS	/;"	d	file:
+OPS_APPEND	cmdline.h	/^#define OPS_APPEND	/;"	d
+OPS_COMPRESS	cmdline.h	/^#define OPS_COMPRESS	/;"	d
+OPS_COMPRESS_LEVEL	cmdline.h	/^#define OPS_COMPRESS_LEVEL	/;"	d
+OPS_COMPRESS_THREADS	cmdline.h	/^#define OPS_COMPRESS_THREADS	/;"	d
+OPS_DECOMPRESS	cmdline.h	/^#define OPS_DECOMPRESS	/;"	d
+OPS_DECOMPRESS_FRAG	cmdline.h	/^#define OPS_DECOMPRESS_FRAG	/;"	d
+OPS_DEVNULL	cmdline.h	/^#define OPS_DEVNULL	/;"	d
+OPS_DONT_APPEND	cmdline.h	/^#define OPS_DONT_APPEND	/;"	d
+OPS_DONT_KEEPINPUT	cmdline.h	/^#define OPS_DONT_KEEPINPUT	/;"	d
+OPS_DONT_OVERWRITE	cmdline.h	/^#define OPS_DONT_OVERWRITE	/;"	d
+OPS_DONT_SYMFOLLOW	cmdline.h	/^#define OPS_DONT_SYMFOLLOW	/;"	d
+OPS_DONT_TOLERANT	cmdline.h	/^#define OPS_DONT_TOLERANT	/;"	d
+OPS_HELP	cmdline.h	/^#define OPS_HELP	/;"	d
+OPS_KEEPINPUT	cmdline.h	/^#define OPS_KEEPINPUT	/;"	d
+OPS_OUTPUT	cmdline.h	/^#define OPS_OUTPUT	/;"	d
+OPS_OVERWRITE	cmdline.h	/^#define OPS_OVERWRITE	/;"	d
+OPS_PERMS	cmdline.h	/^#define OPS_PERMS	/;"	d
+OPS_STDOUT	cmdline.h	/^#define OPS_STDOUT	/;"	d
+OPS_SYMFOLLOW	cmdline.h	/^#define OPS_SYMFOLLOW	/;"	d
+OPS_TOLERANT	cmdline.h	/^#define OPS_TOLERANT	/;"	d
+OPS_VERSION	cmdline.h	/^#define OPS_VERSION	/;"	d
+PATH_MAX	../confdeps.h	/^#  define PATH_MAX	/;"	d
+RC	compress.h	/^# define RC(/;"	d
+SETALL	compress.h	/^#define SETALL(/;"	d
+SETFIRST	compress.h	/^#define SETFIRST(/;"	d
+SETFIRST16	compress.h	/^#define SETFIRST16(/;"	d
+SETFOURTH	compress.h	/^#define SETFOURTH(/;"	d
+SETREST16	compress.h	/^#define SETREST16(/;"	d
+SETSECOND	compress.h	/^#define SETSECOND(/;"	d
+SETTHIRD	compress.h	/^#define SETTHIRD(/;"	d
+SPOT_BASIS_STEP	bzip.h	/^#define SPOT_BASIS_STEP	/;"	d
+STDC_HEADERS	../config.h	/^#define STDC_HEADERS /;"	d
+STRLEN	lc_common.h	/^#define STRLEN(/;"	d
+STR_LEN	lc_common.h	/^#define STR_LEN(/;"	d
+STR_SIZE	lc_common.h	/^#define STR_SIZE(/;"	d
+SWAP	compress.h	/^#define SWAP(/;"	d
+TWO_TO_THE	bzip.h	/^#define TWO_TO_THE(/;"	d
+VAL_128_255	models.h	/^	VAL_128_255,$/;"	e
+VAL_16_31	models.h	/^	VAL_16_31,$/;"	e
+VAL_2_3	models.h	/^	VAL_2_3,$/;"	e
+VAL_32_63	models.h	/^	VAL_32_63,$/;"	e
+VAL_4_7	models.h	/^	VAL_4_7,$/;"	e
+VAL_64_127	models.h	/^	VAL_64_127,$/;"	e
+VAL_8_15	models.h	/^	VAL_8_15,$/;"	e
+VAL_EOB	models.h	/^	VAL_EOB$/;"	e
+VAL_ONE	models.h	/^	VAL_ONE,$/;"	e
+VAL_RUNA	models.h	/^	VAL_RUNA,$/;"	e
+VAL_RUNB	models.h	/^	VAL_RUNB,$/;"	e
+VERSION_H	version.h	/^#define VERSION_H$/;"	d
+XCHNG_ANY	lc_common.h	/^#define XCHNG_ANY(/;"	d
+XCHNG_PTR	lc_common.h	/^#define XCHNG_PTR(/;"	d
+_GNU_SOURCE	../config.h	/^#define _GNU_SOURCE$/;"	d
+__attribute__	../confdeps.h	/^# define __attribute__(/;"	d
+append	main.h	/^	int tolerant, keep_input, symfollow, overwrite, append;$/;"	m	struct:main_runtime_st
+arithCodeBitPlusFollow	compress.c	/^void arithCodeBitPlusFollow(unsigned bit)$/;"	f
+arithCodeDoneEncoding	compress.c	/^void arithCodeDoneEncoding(void)$/;"	f
+arithCodeRenormalize_Encode	compress.c	/^void arithCodeRenormalize_Encode(void)$/;"	f
+arithCodeStartDecoding	decompress.c	/^void arithCodeStartDecoding(void)$/;"	f
+arithCodeStartEncoding	compress.c	/^void arithCodeStartEncoding(void)$/;"	f
+basename	main.c	/^char const *basename(char const *fname)$/;"	f
+bigD	decompress.c	/^static u_int32_t bigR, bigD;$/;"	v	file:
+bigL	compress.c	/^static u_int32_t bigL, bigR;$/;"	v	file:
+bigR	compress.c	/^static u_int32_t bigL, bigR;$/;"	v	file:
+bigR	decompress.c	/^static u_int32_t bigR, bigD;$/;"	v	file:
+bit_end	bitstream.h	/^	u_int8_t *bit_p, *bit_end;$/;"	m	struct:bitstream_st
+bit_p	bitstream.h	/^	u_int8_t *bit_p, *bit_end;$/;"	m	struct:bitstream_st
+bit_window	bitstream.h	/^	u_int8_t bit_window[BITS_OF(u_int8_t) * BS_BIT_WINDOW];$/;"	m	struct:bitstream_st
+bitsOutstanding	compress.c	/^static u_int32_t bitsOutstanding;$/;"	v	file:
+bitstream_st	bitstream.h	/^struct bitstream_st$/;"	s
+block	decompress.c	/^static unsigned char *block = NULL;$/;"	v	file:
+block_end	decompress.c	/^static unsigned block_end;$/;"	v	file:
+blocked	bitstream.h	/^	int blocked;$/;"	m	struct:bitstream_st
+bs_align	main.c	/^void bs_align(struct bitstream_st *bs)$/;"	f
+bs_close	main.c	/^void bs_close(struct bitstream_st *bs)$/;"	f
+bs_close_input	main.c	/^void bs_close_input(struct bitstream_st *bs)$/;"	f
+bs_close_output	main.c	/^void bs_close_output(struct bitstream_st *bs)$/;"	f
+bs_crc_init	main.c	/^void bs_crc_init(struct bitstream_st *bs)$/;"	f
+bs_eof	main.c	/^int bs_eof(struct bitstream_st *bs)$/;"	f
+bs_fill_bit	main.c	/^unsigned bs_fill_bit(struct bitstream_st *bs, int eofok)$/;"	f
+bs_fill_byte	main.c	/^unsigned bs_fill_byte(struct bitstream_st *bs, int eofok)$/;"	f
+bs_flush_bit	main.c	/^void bs_flush_bit(struct bitstream_st *bs)$/;"	f
+bs_flush_byte	main.c	/^void bs_flush_byte(struct bitstream_st *bs)$/;"	f
+bs_get_bit	decompress.c	/^unsigned bs_get_bit(void)$/;"	f
+bs_get_byte	compress.c	/^int bs_get_byte(void)$/;"	f
+bs_open_input	main.c	/^void bs_open_input(struct bitstream_st *bs, char const *fname)$/;"	f
+bs_open_output	main.c	/^void bs_open_output(struct bitstream_st *bs, char const *fname)$/;"	f
+bs_put_bit	compress.c	/^void bs_put_bit(unsigned bit)$/;"	f
+bs_put_byte	decompress.c	/^void bs_put_byte(u_int8_t c)$/;"	f
+bs_read	main.c	/^unsigned bs_read(struct bitstream_st const *bs, void *data, size_t size)$/;"	f
+bs_rewind	main.c	/^void bs_rewind(struct bitstream_st *bs)$/;"	f
+bs_write	main.c	/^void bs_write(struct bitstream_st *bs, void const *data, size_t size)$/;"	f
+bunzip	main.c	/^void bunzip(struct bitstream_st *ibs, struct bitstream_st *obs)$/;"	f
+byte_end	bitstream.h	/^	u_int8_t *byte_p, *byte_end;$/;"	m	struct:bitstream_st
+byte_p	bitstream.h	/^	u_int8_t *byte_p, *byte_end;$/;"	m	struct:bitstream_st
+byte_window	bitstream.h	/^	u_int8_t byte_window[BS_WINDOW_SIZE];$/;"	m	struct:bitstream_st
+bzip	main.c	/^void bzip(struct bitstream_st *ibs, struct bitstream_st *obs)$/;"	f
+bzip_prgname	main.c	/^static char const *bzip_prgname;$/;"	v	file:
+bzip_version	version.c	/^char const bzip_version[] = BZIP_VERSION;$/;"	v
+c	compress.c	/^	u_int8_t c[4];$/;"	m	union:words_t	file:
+cmdopts	cmdline.h	/^static char const cmdopts[] =$/;"	v
+compress	compress.c	/^void compress(void)$/;"	f
+compress_threads	main.h	/^	unsigned compression_level, compress_threads;$/;"	m	struct:main_runtime_st
+compression_level	main.h	/^	unsigned compression_level, compress_threads;$/;"	m	struct:main_runtime_st
+crc	bitstream.h	/^	u_int32_t crc;$/;"	m	struct:bitstream_st
+crc32Table	crc.c	/^u_int32_t const crc32Table[] =$/;"	v
+decompress	decompress.c	/^void decompress(void)$/;"	f
+decompress_frag	main.h	/^	unsigned decompress_frag;$/;"	m	struct:main_runtime_st
+die	main.c	/^void die(int exitcode, char const *fmt, ...)$/;"	f
+doReversibleTransformation	compress.c	/^unsigned doReversibleTransformation(void)$/;"	f
+drop_output	main.h	/^	int drop_output, has_perms;$/;"	m	struct:main_runtime_st
+eof	bitstream.h	/^	int eof;$/;"	m	struct:bitstream_st
+exception_handler	main.c	/^static jmp_buf exception_handler;$/;"	v	file:
+fd	bitstream.h	/^	int fd, stdfd;$/;"	m	struct:bitstream_st
+fname	bitstream.h	/^	char const *fname;$/;"	m	struct:bitstream_st
+freq	models.h	/^	unsigned totFreq, freq[MAX_SYMBOLS];$/;"	m	struct:Model
+fullGt	compress.c	/^int fullGt(unsigned i1, unsigned i2)$/;"	f
+getAndMoveToFrontDecode	decompress.c	/^int getAndMoveToFrontDecode(unsigned limit)$/;"	f
+getMTFVal	decompress.c	/^unsigned getMTFVal(unsigned symbol)$/;"	f
+getRLEpair	compress.c	/^unsigned getRLEpair(u_int8_t *chp)$/;"	f
+getSymbol	decompress.c	/^unsigned getSymbol(struct Model *m)$/;"	f
+getUInt32	decompress.c	/^u_int32_t getUInt32(void)$/;"	f
+has_perms	main.h	/^	int drop_output, has_perms;$/;"	m	struct:main_runtime_st
+incValue	models.h	/^	unsigned const numSymbols, incValue, noExceed;$/;"	m	struct:Model
+initBogusModel	models.c	/^void initBogusModel(void)$/;"	f
+initModel	models.c	/^void initModel(struct Model *m)$/;"	f
+initModels	models.c	/^void initModels(void)$/;"	f
+input_bs	main.c	/^struct bitstream_st input_bs, output_bs;$/;"	v
+inputs	main.h	/^	char const *output, *const *inputs;$/;"	m	struct:main_runtime_st
+invalid_input	decompress.c	/^void invalid_input(char const *msg)$/;"	f
+issymlink	main.c	/^int issymlink(int fd, char const *fname)$/;"	f
+keep_input	main.h	/^	int tolerant, keep_input, symfollow, overwrite, append;$/;"	m	struct:main_runtime_st
+lc_atou	main.c	/^unsigned lc_atou(char const *str, unsigned base)$/;"	f
+lc_recallocp	main.c	/^void lc_recallocp(void *ptrp, size_t newsize)$/;"	f
+ll	decompress.c	/^static unsigned char *ll = NULL;$/;"	v	file:
+loadAndRLEsource	compress.c	/^int loadAndRLEsource(unsigned blocksize)$/;"	f
+logf	main.c	/^void logf(char const *fmt, ...)$/;"	f
+m	models.h	/^	struct Model *m;$/;"	m	struct:MTFVals_decode_st
+m	models.h	/^	struct Model *m;$/;"	m	struct:MTFVals_encode_st
+main	main.c	/^int main(int argc, char *argv[])$/;"	f
+main_runtime	main.c	/^struct main_runtime_st main_runtime;$/;"	v
+main_runtime_st	main.h	/^struct main_runtime_st$/;"	s
+makeup_output_fname	main.c	/^char const *makeup_output_fname(struct bitstream_st const *ibs)$/;"	f
+makeup_output_perms	main.c	/^mode_t makeup_output_perms(struct bitstream_st const *bs)$/;"	f
+model_bogus	models.c	/^struct Model model_bogus = { 256,	0,	0 };$/;"	v
+models	models.c	/^struct Model models[] =$/;"	v
+moveToFrontCodeAndSend	compress.c	/^void moveToFrontCodeAndSend(int finish, unsigned origPtr)$/;"	f
+msg_usage	cmdline.h	/^static char const msg_usage[] =$/;"	v
+n	models.h	/^	unsigned n;$/;"	m	struct:MTFVals_decode_st
+n	models.h	/^	unsigned n;$/;"	m	struct:MTFVals_encode_st
+noExceed	models.h	/^	unsigned const numSymbols, incValue, noExceed;$/;"	m	struct:Model
+numSymbols	models.h	/^	unsigned const numSymbols, incValue, noExceed;$/;"	m	struct:Model
+origPtr	decompress.c	/^static unsigned origPtr;$/;"	v	file:
+output	main.h	/^	char const *output, *const *inputs;$/;"	m	struct:main_runtime_st
+output_bs	main.c	/^struct bitstream_st input_bs, output_bs;$/;"	v
+overwrite	main.h	/^	int tolerant, keep_input, symfollow, overwrite, append;$/;"	m	struct:main_runtime_st
+panic	main.c	/^void panic(char const *fmt, ...)$/;"	f
+parse_cmdline	main.c	/^void parse_cmdline(int argc, char *argv[])$/;"	f
+perms	main.h	/^	mode_t perms;$/;"	m	struct:main_runtime_st
+putSymbol	compress.c	/^void putSymbol(struct Model *m, unsigned symbol)$/;"	f
+putUInt32	compress.c	/^void putUInt32(u_int32_t i)$/;"	f
+qsortFull	compress.c	/^void qsortFull(unsigned wuL, unsigned wuR)$/;"	f
+read_magic	decompress.c	/^unsigned read_magic(void)$/;"	f
+s	compress.c	/^	u_int16_t s[2];$/;"	m	union:words_t	file:
+scaleModel	models.h	/^void scaleModel(struct Model *m)$/;"	f
+sendMTFVal	compress.c	/^void sendMTFVal(unsigned n)$/;"	f
+sendZeroes	compress.c	/^void sendZeroes(unsigned zeroesPending)$/;"	f
+shellTrivial	compress.c	/^void shellTrivial(void)$/;"	f
+smallB	bzip.h	/^#define smallB	/;"	d
+smallF	bzip.h	/^#define smallF	/;"	d
+sortIt	compress.c	/^void sortIt(void)$/;"	f
+spotBlock	compress.c	/^void spotBlock(void)$/;"	f
+spotBlock	decompress.c	/^void spotBlock(void)$/;"	f
+stdfd	bitstream.h	/^	int fd, stdfd;$/;"	m	struct:bitstream_st
+stripe	compress.c	/^void stripe(void)$/;"	f
+symfollow	main.h	/^	int tolerant, keep_input, symfollow, overwrite, append;$/;"	m	struct:main_runtime_st
+thread_slave	compress.c	/^void thread_slave(unsigned blocksize)$/;"	f
+throw_exception	main.c	/^void throw_exception(int errorcode)$/;"	f
+tolerant	main.h	/^	int tolerant, keep_input, symfollow, overwrite, append;$/;"	m	struct:main_runtime_st
+totFreq	models.h	/^	unsigned totFreq, freq[MAX_SYMBOLS];$/;"	m	struct:Model
+trivialGt	compress.c	/^int trivialGt(unsigned i1, unsigned i2)$/;"	f
+u	compress.c	/^	u_int32_t u;$/;"	m	union:words_t	file:
+unRLEandDump	decompress.c	/^void unRLEandDump(int finish)$/;"	f
+undoReversibleTransformation	decompress.c	/^void undoReversibleTransformation(void)$/;"	f
+unexpected_eof	main.c	/^void unexpected_eof(struct bitstream_st const *bs)$/;"	f
+updateCRC	crc.h	/^#define updateCRC(/;"	d
+updateModel	models.h	/^void updateModel(struct Model *m, unsigned symbol)$/;"	f
+v	models.h	/^	unsigned v;$/;"	m	struct:MTFVals_encode_st
+words	compress.c	/^static union words_t *words = NULL;$/;"	v	file:
+words_end	compress.c	/^static unsigned words_end;$/;"	v	file:
+words_t	compress.c	/^union words_t$/;"	u	file:
+write_magic	compress.c	/^void write_magic(unsigned clevel, unsigned nthreads)$/;"	f
+zptr	compress.c	/^static unsigned *zptr = NULL;$/;"	v	file:
+zptr	decompress.c	/^static unsigned *zptr = NULL;$/;"	v	file:

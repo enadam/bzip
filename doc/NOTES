@@ -1,0 +1,149 @@
+bzip, version 0.21, dated 25-August-1996.
+
+This program is based on (at least) the work of:
+	Mike Burrows
+	David Wheeler
+	Peter Fenwick
+	Alistair Moffat
+	Radford Neal
+	Ian H. Witten
+
+For more information on these sources, see the file ALGORITHMS.
+
+WARNING:
+This program (attempts to) compress data by performing several
+non-trivial transformations on it.  Unless you are 100% familiar
+with *all* the algorithms contained herein, and with the
+consequences of modifying them, you should NOT meddle with the
+compression or decompression machinery.  Incorrect changes can
+and very likely *will* lead to disasterous loss of data.
+
+DISCLAIMER:
+I TAKE NO RESPONSIBILITY FOR ANY LOSS OF DATA ARISING FROM THE
+USE OF THIS PROGRAM, HOWSOEVER CAUSED.
+
+Every compression of a file implies an assumption that the
+compressed file can be decompressed to reproduce the original.
+Great efforts in design, coding and testing have been made to
+ensure that this program works correctly.  However, the
+complexity of the algorithms, and, in particular, the presence
+of various special cases in the code which occur with very low
+but non-zero probability make it impossible to rule out the
+possibility of bugs remaining in the program.  DO NOT COMPRESS
+ANY DATA WITH THIS PROGRAM UNLESS YOU ARE PREPARED TO ACCEPT THE
+POSSIBILITY, HOWEVER SMALL, THAT THE DATA WILL NOT BE RECOVERABLE.
+
+That is not to say this program is inherently unreliable.
+Indeed, I very much hope the opposite is true.  BZIP has been
+carefully constructed and extensively tested.
+
+Implementation notes, July 1996
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Memory allocation
+~~~~~~~~~~~~~~~~~ 
+
+All large data structures are allocated on the C heap,
+for better or for worse.  That includes the various 
+arrays of pointers, striped words, bytes and frequency
+tables for compression and decompression.  The only non-heap
+allocated structures are the coding models and the 
+BitStream structures, but these are both small.
+
+BZIP can operate at various block-sizes, ranging from
+100k to 900k in 100k steps, and it allocates only as
+much as it needs to.  When compressing, we know from the
+command-line options what the block-size is going to be,
+so all allocation can be done at start-up; if that
+succeeds, there can be no further allocation problems.
+
+Decompression is more complicated.  Each compressed file
+contains, in its header, a byte indicating the block
+size used for compression.  This means BZIP potentially
+needs to reallocate memory for each file it deals with,
+which in turn opens the possibility for a memory allocation
+failure part way through a run of files, by encountering
+a file requiring a much larger block size than all the
+ones preceding it.
+
+The policy is to simply give up if a memory allocation
+failure occurs.  During decompression, it would be
+possible to move on to subsequent files in the hope that
+some might ask for a smaller block size, but the
+complications for doing this seem more trouble than they
+are worth.
+
+
+Compressed file format
+~~~~~~~~~~~~~~~~~~~~~~~
+Perhaps the most important point is that compressed
+files start with a 4-byte preamble:
+
+   'B' 'Z'     -- a crude `magic number'
+
+   '0'         -- file format version
+
+   '1' to '9'  -- block size indicator
+
+The third byte gives a trapdoor mechanism so that we can
+change file formats and/or algorithm later, without
+losing backwards compatibility.  The fourth byte
+indicates the compression block size; '1' stands for
+100k, '2' for 200k, &c.
+
+In the present file format (call it version '0') *all*
+material after this 4-byte preamble is written via the
+arithmetic coder, using various different models,
+including the `bogus' non-adaptive 256-entry model used
+to send bytes through the arithmetic coder.  The overall
+structure of this part is a sequence of blocks, each of 
+the format
+
+   origPtr    run-length-coded MTF values   EOB
+
+origPtr is a 32-bit number (sent via bogusModel)
+indicating the position in the sorted block of the
+un-rotated original string.  A negative value of
+origPtr indicates that this is the last block.
+
+Finally, after all the blocks, there is a 32-bit 
+CRC value, again sent using the `bogus' model.
+The CRC applies to the entirety of the uncompressed 
+data stream.
+
+The MTF values are coded exactly as with Fenwick's
+`structured model', augmented with Wheeler's run-length
+coding scheme for zeros.  The basis model has an extra
+symbol, EOB, denoting the end of the block; if that is
+not encountered within the block size indicated by the
+preamble, something is wrong.
+
+
+Error conditions
+~~~~~~~~~~~~~~~~
+Dealing with error conditions is the least satisfactory
+aspect of BZIP.  The policy is to try and leave the
+filesystem in a consistent state, then quit, even if it
+means not processing some of the files mentioned in the
+command line.  `A consistent state' means that a file
+exists either in its compressed or uncompressed form,
+but not both.  This boils down to the rule `delete the
+output file if an error condition occurs, leaving the
+input intact'.  Input files are only deleted when we can
+be pretty sure the output file has been written and
+closed successfully.
+
+Errors are a dog because there's so many things to 
+deal with.  The following can happen mid-file, and
+require cleaning up.
+
+	internal `panics' -- indicating a bug
+	corrupted compressed file -- block overrun in MTF decode
+	bad magic number or version on compressed file
+	can't allocate enough memory to decompress this file
+	I/O error reading/writing/opening/closing
+	signal catches -- Control-C, SIGTERM, SIGHUP.
+
+Other conditions, primarily pertaining to file names,
+can be checked in-between files, which makes dealing
+with them easier.

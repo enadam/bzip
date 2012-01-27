@@ -1,0 +1,47 @@
+#!/bin/bash
+
+base="p";
+p="/home/adam/prog/src/bzip_0.2.3a/src/${base}"
+f1="/tmp/${base}1";
+f2="/tmp/${base}2";
+
+function testit()
+{
+	echo "(compress) $@";
+	cat "$@" | bzip -c > "$f1" & f1pid=$!;
+	cat "$@" | $p -c > "$f2" & f2pid=$!;
+	cmp "$f1" "$f2" || kill $f1pid $f2pid;
+
+	echo "(decompress) $@";
+	cat "$@" > "$f1" & f1pid=$!;
+	cat "$@" | bzip -c | $p -dc > "$f2" & f2pid=$!;
+	cmp "$f1" "$f2" || kill $f1pid $f2pid;
+}
+
+limit=15;
+
+export EF_DISABLE_BANNER=1;
+mkfifo "$f1" "$f2" 2> /dev/null;
+
+unset list;
+count=0;
+
+while read fname;
+do
+	[ -r "$fname" ] || continue;
+	testit "$fname";
+
+	list[$count]="$fname";
+	count=$[count + 1];
+
+	if [ $count -ge $limit ];
+	then
+		testit "${list[@]}";
+		unset list;
+		count=0;
+	fi
+done
+
+[ $count -gt 1 ] && testit "${list[@]}";
+
+exit 0;

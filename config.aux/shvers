@@ -1,0 +1,46 @@
+#! /bin/sh
+
+if [ $# -lt 1 ];
+then
+	echo "usage: $0 <dbase> [<expr>]";
+	exit 1;
+fi
+
+dbase="$1";
+expr="$2";
+
+sedprog="";
+sedprog="$sedprog s/@AT@/@/g;";
+sedprog="$sedprog s/@TIME@/`date`/g;";
+sedprog="$sedprog s/@USER@/`whoami`/g;";
+sedprog="$sedprog s/@HOST@/`hostname`/g;";
+
+while read f1 f2;
+do
+	case "$f1" in
+	"#")
+		;;
+	"")
+		;;
+	*)
+		sedprog="${sedprog} s/@${f1}@/${f2}/g;";
+		;;
+	esac
+done < "$dbase";
+
+case "$expr" in
+"")
+	exec sed -e "$sedprog";
+	;;
+-progver)
+	expr="@MAJOR@.@MINOR@.@PATCH@@EXTRA@";
+	;;
+-libver)
+	expr="@CURRENT@.@REVISION@@EXTRA@";
+	;;
+-sover)
+	expr="@CURRENT@:@REVISION@:@AGE@";
+	;;
+esac
+
+echo "$expr" | exec sed -e "$sedprog";

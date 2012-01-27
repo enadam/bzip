@@ -1,0 +1,28 @@
+#!/bin/bash
+
+base="bzip";
+p="/home/adam/prog/src/bzip_0.2.3a/src/${base}"
+f1="/tmp/${base}1";
+f2="/tmp/${base}2";
+
+function testit()
+{
+	echo "(decompress) $@";
+	bzip -dc "$@" > "$f1" & f1pid=$!;
+	$p -dc "$@" > "$f2" & f2pid=$!;
+	cmp "$f1" "$f2" || kill $f1pid $f2pid;
+
+	echo "(compress) $@";
+	bzip -dc "$@" | $p -c | cmp "$@";
+}
+
+export EF_DISABLE_BANNER=1;
+mkfifo "$f1" "$f2" 2> /dev/null;
+
+while read fname;
+do
+	[ -r "$fname" ] || continue;
+	testit "$fname";
+done
+
+exit 0;

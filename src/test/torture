@@ -1,0 +1,51 @@
+#!/bin/sh
+
+trap "" SIGHUP;
+
+if [ "$1" != "" ];
+then
+	path="$1";
+	shift;
+else
+	path="/";
+fi
+
+if [ "$2" = "bz" ];
+then
+	mask="-name *.bz";
+	testbz="./testbz2";
+	shift;
+else
+	mask="";
+	testbz="./testbz";
+fi
+
+[ -f torture.log ] || touch torture.log;
+awk '
+{
+	if (NF == 2 && $1 == "(decompress)")
+	{
+		if (last != "")
+			print last;
+		last = $2;
+	}
+}
+
+	END { print "End of torture.ready"; }
+' < torture.log > torture.ready;
+
+find "$path" $mask -type f -a -not -empty -a \
+	\( \
+		\( \
+			\( \
+				-path /mnt/floppy \
+				-o -path /mnt/cdrom \
+				-o -path /mnt/cdrom1 \
+			\) \
+			-a -prune \
+		\) \
+		-o -print \
+	\) 2> /dev/null \
+| fgrep  -v -f torture.ready \
+| nice $testbz 2> /dev/null \
+| tee -a torture.log;

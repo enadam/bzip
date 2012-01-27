@@ -1,0 +1,18 @@
+/* version.h.in, version.h */
+#ifndef VERSION_H
+#define VERSION_H
+
+/* Standard definitions */
+#define BZIP_VERS_MAJOR		@MAJOR@
+#define BZIP_VERS_MINOR		@MINOR@
+#define BZIP_VERS_PATCH		@PATCH@
+#define BZIP_VERS_EXTRA		"@EXTRA@"
+#define BZIP_VERS_BUILD		@BUILD@
+#define BZIP_VERS_TIME		"@TIME@"
+#define BZIP_VERS_USER		"@USER@"
+#define BZIP_VERS_HOST		"@HOST@"
+
+#define BZIP_VERSION \
+	"@MAJOR@.@MINOR@.@PATCH@@EXTRA@ #@BUILD@ @TIME@ @USER@@AT@@HOST@"
+
+#endif /* ! VERSION_H */

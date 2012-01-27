@@ -1,0 +1,58 @@
+#! /bin/sh
+
+if [ $# -lt 3 ];
+then
+	echo "usage: $0 <dbase> <field> <operation> [<operand>]";
+	exit 1;
+fi
+
+dbase="$1";
+field="$2";
+operation="$3";
+case "$operation" in
+	-a)
+		operand="$4";
+		if [ "x$operand" = "x" ];
+		then
+			echo "${0}: Required parameter missing.";
+			exit 1;
+		fi
+		;;
+	*)
+		;;
+esac
+
+trap 'rm -f "$tempfile"; exit 1;' 1 2 15;
+tempfile=`mktemp chvers.XXXXXX`;
+
+changed="no";
+while read line;
+do
+	set -- $line;
+	case "$1" in
+	$field)
+		case "$operation" in
+		-i)
+			newvalue=`expr "$2" + 1`;
+			;;
+		-a)
+			newvalue=`expr "$2" + "$operand"`;
+			;;
+		*)
+			newvalue="$operation";
+			;;
+		esac
+
+		echo "$1	$newvalue";
+		[ "$newvaluse" != "$2" ] && changed="yes";
+		;;
+	*)
+		echo "$line";
+		;;
+	esac
+done < "$dbase" > "$tempfile";
+
+[ "$changed" = "yes" ] && cat "$tempfile" > "$dbase";
+rm -f "$tempfile";
+
+exit 0;

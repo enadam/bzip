@@ -1,0 +1,47 @@
+#
+# Makefile
+#
+
+# Default target
+all: curdir_all
+
+# Variables
+# General variables
+ROOTDIR := ..
+TOPDIR := ..
+include $(TOPDIR)/Makefile.vars
+
+# Components
+man_sources := bzip.1 bunzip.1
+man_targets := man1/bzip.1 man1/bunzip.1
+
+sources := $(man_sources)
+targets := $(man_targets)
+
+SUBDIRS :=
+
+# Rules
+# General rules
+include $(ROOTDIR)/Makefile.rules
+include $(ROOTDIR)/Makefile.autoconf
+
+# Explicit rules
+$(man_targets): $(notdir $@)
+	$(INSTALL) -d $(INSTALL_MAN_DIR)/$(dir $@);
+	$(INSTALL_DATA) $(notdir $@) $(INSTALL_MAN_DIR)/$@;
+	$(GZIP) -9 $(INSTALL_MAN_DIR)/$@;
+
+# Standard commands
+curdir_install: $(targets)
+
+curdir_uninstall:
+	cd $(INSTALL_MAN_DIR); rm -f $(man_targets) $(addsuffix .gz, $(man_targets));
+
+curdir_distclean: curdir_clean autoconf_distclean
+	cp -f Makefile.vars.in Makefile.vars;
+
+curdir_mostlyclean: curdir_distclean autoconf_mostlyclean
+
+curdir_maintainerclean: curdir_mostlyclean
+
+# End of Makefile
